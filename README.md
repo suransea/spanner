@@ -1,6 +1,6 @@
 ## Spanner
 
-![PyPI](https://img.shields.io/pypi/v/qrcode-spanner.svg)
+[![PyPI](https://img.shields.io/pypi/v/qrcode-spanner.svg)](https://pypi.org/project/qrcode-spanner)
 
 二维码生成和扫描工具
 
