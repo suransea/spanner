@@ -8,9 +8,9 @@ verify_ssl = true
 [packages]
 qrcode = "*"
 pillow = "*"
-image = "*"
 pyscreenshot = "*"
-zxing = "*"
+pyzbar = "*"
+opencv-python = "*"
 
 [requires]
 python_version = "3.7"

@@ -2,22 +2,22 @@
 
 import setuptools
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+with open("README.md", "r") as f:
+    long_description = f.read()
 
 setuptools.setup(
-    name="qrcode-spanner",
-    version="0.0.1",
+    name="spnr",
+    version="0.2",
     author="sea",
     author_email="simpleslight@icloud.com",
-    description="A qrcode command line tool",
+    description="A command line toolset",
     long_description=long_description,
     long_description_content_type="text/markdown",
     license='Apache-2.0',
     url="https://github.com/suransea/spanner",
     packages=setuptools.find_packages(),
     install_requires=[
-        'qrcode', 'pillow', 'image', 'pyscreenshot', 'zxing'
+        'qrcode', 'pillow', 'opencv-python', 'pyscreenshot', 'pyzbar'
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -25,7 +25,7 @@ setuptools.setup(
     ],
     entry_points={
         'console_scripts': [
-            'spanner=qrcode_spanner.spanner:main',
+            'spnr=spnr.cli:main',
         ]
     },
 )
