@@ -3,6 +3,7 @@
 import argparse
 import sys
 
+import spnr
 from spnr import code
 from spnr import hash
 from spnr import json
@@ -96,6 +97,8 @@ def init_hash_parser(parser):
 
 def main():
     parser = argparse.ArgumentParser(description='A toolset.', add_help=True)
+    parser.add_argument('-v', '--version', action='version', version=spnr.version)
+
     subparsers = parser.add_subparsers(required=True)
 
     qr_parser = subparsers.add_parser('qr')
