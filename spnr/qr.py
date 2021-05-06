@@ -4,6 +4,7 @@ import platform
 import sys
 
 import cv2
+import pyperclip
 import pyscreenshot
 import qrcode
 from PIL import Image
@@ -13,8 +14,12 @@ from pyzbar import pyzbar
 def generate(args):
     if args.string is not None:
         content = args.string
+    elif args.clipboard:
+        content = pyperclip.paste()
+        print(content)
     else:
         content = args.file.read()
+        print(content)
     if args.screen:
         qrcode.make(content).show()
     elif args.output_file is sys.stdout:
@@ -43,8 +48,15 @@ def scan(args):
         result = pyzbar.decode(img)
     if len(result) == 0:
         print('No qrcode detected.')
+    texts = ''
     for decoded in result:
-        print(decoded.data.decode())
+        text = decoded.data.decode()
+        if texts != '':
+            texts += '\n'
+        texts += text
+        print(text)
+    if args.clipboard:
+        pyperclip.copy(texts)
 
 
 def qr_str(content):

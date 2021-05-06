@@ -11,6 +11,7 @@ pillow = "*"
 pyscreenshot = "*"
 pyzbar = "*"
 opencv-python = "*"
+pyperclip = "*"
 
 [requires]
 python_version = "3.7"

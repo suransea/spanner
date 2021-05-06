@@ -19,6 +19,7 @@ def init_qr_parser(parser):
     gen_parser.set_defaults(func=qr.generate)
     gen_group = gen_parser.add_mutually_exclusive_group()
     gen_group.add_argument('-s', '--string', help='content')
+    gen_group.add_argument('-c', '--clipboard', help='read content from clipboard', action='store_true')
     gen_group.add_argument('-f', '--file',
                            help='read content from the file, default stdin',
                            default=sys.stdin,
@@ -40,6 +41,7 @@ def init_qr_parser(parser):
     scan_group.add_argument('-f', '--file',
                             help='scan a qrcode from the picture file',
                             type=argparse.FileType('rb'))
+    scan_parser.add_argument('-C', '--clipboard', help='copy the result to the clipboard', action='store_true')
 
 
 def init_table_parser(parser):
@@ -67,6 +69,7 @@ def init_json_parser(parser):
     parser.set_defaults(func=json.handle)
     group = parser.add_mutually_exclusive_group()
     group.add_argument('-s', '--string', help='a json string')
+    group.add_argument('-c', '--clipboard', help='read the json from the clipboard', action='store_true')
     group.add_argument('-f', '--file',
                        help='read the json from a file, default stdin',
                        default=sys.stdin,
@@ -87,6 +90,7 @@ def init_hash_parser(parser):
     parser.set_defaults(func=hash.handle)
     group = parser.add_mutually_exclusive_group()
     group.add_argument('-s', '--string', help='hash a string')
+    group.add_argument('-c', '--clipboard', help='read the string from the clipboard', action='store_true')
     group.add_argument('-f', '--file',
                        help='hash a file, default stdin',
                        default=sys.stdin,

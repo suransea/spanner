@@ -19,7 +19,7 @@ setuptools.setup(
     url='https://github.com/suransea/spanner',
     packages=setuptools.find_packages(),
     install_requires=[
-        'qrcode', 'pillow', 'opencv-python', 'pyscreenshot', 'pyzbar'
+        'qrcode', 'pillow', 'opencv-python', 'pyscreenshot', 'pyzbar', 'pyperclip'
     ],
     classifiers=[
         'Programming Language :: Python :: 3',
